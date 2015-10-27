@@ -30,7 +30,6 @@ var paths = {
       './bower_components/font-awesome/scss',
       './bower_components/ionic/scss'
     ],
-    //These files include Foundation for Apps and its dependencies
     libs: [
       'bower_components/ionic/release/js/ionic.bundle.js',
       'bower_components/oclazyload/dist/ocLazyLoad.js',
@@ -38,7 +37,6 @@ var paths = {
       'bower_components/angular-md5/angular-md5.js',
       'bower_components/moment/moment.js',
       'bower_components/moment-range/dist/moment-range.js',
-      '!bower_components/foundation-apps/js/angular/app.js'
     ],
     //These files are for your app's Javascript
     //Remember to refresh this list when adding new files
@@ -78,37 +76,6 @@ gulp.task('copy', function() {
       .pipe(gulp.dest('./build'));
 });
 
-// Copies app's page templates and generates URLs for them
-gulp.task('copy:templates', function() {
-    return gulp.src('./src/views/*.html')
-      .pipe(router({
-        path: 'build/js/routes.js',
-        root: 'src'
-      }))
-        .pipe(gulp.dest('./build/views'));
-});
-
-//Compiles the Foundatin for Apps directive partial into
-//a single Javascript file
-gulp.task('copy:foundation', function(cb) {
-    gulp.src('bower_components/foundation-apps/js/angular/components/**/*.html')
-      .pipe($.ngHtml2js({
-        prefix: 'components/',
-        moduleName: 'foundation',
-        declareModule: false
-    }))
-    .pipe($.uglify())
-    .pipe($.concat('templates.js'))
-    .pipe(gulp.dest('./build/js'));
-
-    // Iconic SVG icons
-    gulp.src('./bower_components/foundation-apps/iconic/**/*')
-      .pipe(gulp.dest('./build/img/iconic/'))
-    ;
-
-    cb();
-});
-
 // Compiles Sass
 gulp.task('sass', function () {
   return gulp.src('src/scss/app.scss')
@@ -124,10 +91,10 @@ gulp.task('sass', function () {
   ;
 });
 
-// Compiles and copies the Foundation for Apps JavaScript, as well as your app's custom JS
-gulp.task('uglify', ['uglify:foundation', 'uglify:app'])
+// Compiles and copies the Libs for Apps JavaScript, as well as your app's custom JS
+gulp.task('uglify', ['uglify:libs', 'uglify:app'])
 
-gulp.task('uglify:foundation', function(cb) {
+gulp.task('uglify:libs', function(cb) {
   var uglify = $.if(isProduction, $.uglify()
     .on('error', function (e) {
       console.log(e);
@@ -135,7 +102,7 @@ gulp.task('uglify:foundation', function(cb) {
 
   return gulp.src(paths.libs)
     .pipe(uglify)
-    .pipe($.concat('foundation.js'))
+    .pipe($.concat('libs.js'))
     .pipe(gulp.dest('./build/js/'))
   ;
 });
@@ -167,7 +134,7 @@ gulp.task('server', ['build'], function() {
 });
 //Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'copy:foundation', 'sass', 'uglify'], 'copy:templates', cb);
+  sequence('clean', ['copy', 'sass', 'uglify'], cb);
 });
 
 //Default task: build your app, starts a server and recompile assets 
@@ -181,7 +148,4 @@ gulp.task('default', ['server'], function () {
 
   // Watch static files
   gulp.watch(['./src/**/*.*', '!./src/views/**/*.*', '!./src/{scss,js}/**/*.*'], ['copy']);
-
-  // Watch app templates
-  gulp.watch(['./src/views/**/*.html'], ['copy:templates']);
 });
