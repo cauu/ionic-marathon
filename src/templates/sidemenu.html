@@ -1,0 +1,15 @@
+<div class="iu-menu-container iu-layout-shadow-right" id="iu-menu-container">
+    <div class="iu-menu-content" hm-panmove="onSwipe" hm-panend="onSwipeEnd" 
+     hm-manager-options='{"stopPropagation": true,"preventGhosts": true}'>
+        <div class="iu-menu-header" style="padding-top: 3.325rem">
+            <!--<a ui-sref="profile" class="iu-btn-profile-big">+</a>-->
+            <iu-profile></iu-profile>
+        </div>
+        <ul class="iu-list-ordinary">
+            <li><a class="iu-btn-extend iu-borderless iu-layout-btn-myplan" style="color:#cccccc" hm-tap="myPlanOnTap">我的旅行</a></li>
+            <li><a class="iu-btn-extend iu-borderless iu-layout-btn-collection" style="color:#cccccc" hm-tap="collectPlanOnTap">收藏结伴</a></li>
+            <li><a class="iu-btn-extend iu-borderless iu-layout-btn-info" style="color:#cccccc" hm-tap="userInfoOnTap">个人信息</a></li>
+        </ul>
+    </div>
+    <div ui-sref="home" class="iu-menu-shade"></div>
+</div>

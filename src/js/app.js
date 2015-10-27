@@ -6,6 +6,7 @@
           'ionic',
 
           'ngCordova',
+          'LocalForageModule',
           'base64',
           'angular-md5'
       ])

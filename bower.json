@@ -2,17 +2,19 @@
   "name": "marathon",
   "description": "Start a new ionic project",
   "homepage": "https://github.com/cauu/ionic-marathon",
-  "authors": [ "Martin Tsai <cauu@163.com>"],
+  "authors": [
+    "Martin Tsai <cauu@163.com>"
+  ],
   "version": "1.0.0",
   "main": "build/src/index.html",
-  "keywords":[ 
-      "html5",
-      "angular",
-      "mobile",
-      "hybrid",
-      "phonegap",
-      "cordova",
-      "ionic"
+  "keywords": [
+    "html5",
+    "angular",
+    "mobile",
+    "hybrid",
+    "phonegap",
+    "cordova",
+    "ionic"
   ],
   "license": "MIT",
   "dependencies": {
@@ -24,6 +26,7 @@
     "moment-duration-format": "~1.3.0",
     "moment-range": "~2.0.3",
     "angular-md5": "~0.1.8",
-    "angular-base64": "~2.0.5"
+    "angular-base64": "~2.0.5",
+    "angular-localforage": "~1.2.3"
   }
 }
