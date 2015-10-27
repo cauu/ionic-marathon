@@ -1,0 +1,18 @@
+# Logs
+logs
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency libs 
+bower_components
+node_modules
+
+# Compiled pack
+build
+
+.DS_Store
+.idea
+
