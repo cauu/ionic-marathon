@@ -5,7 +5,7 @@
   "authors": [ "Martin Tsai <cauu@163.com>"],
   "version": "1.0.0",
   "main": "build/src/index.html",
-  "keywords": {
+  "keywords":[ 
       "html5",
       "angular",
       "mobile",
@@ -13,7 +13,7 @@
       "phonegap",
       "cordova",
       "ionic"
-  },
+  ],
   "license": "MIT",
   "dependencies": {
     "ionic": "~1.1.0",

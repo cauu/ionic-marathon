@@ -27,11 +27,12 @@ var paths = {
     // Sass will check these folders for files when you @import
     sass: [
       './src/scss',
-      './bower_components/slick-carousel/slick'
+      './bower_components/font-awesome/scss',
+      './bower_components/ionic/scss'
     ],
     //These files include Foundation for Apps and its dependencies
     libs: [
-      'bower_components/angular/angular.js',
+      'bower_components/ionic/release/js/ionic.bundle.js',
       'bower_components/oclazyload/dist/ocLazyLoad.js',
       'bower_components/angular-base64/angular-base64.js',
       'bower_components/angular-md5/angular-md5.js',
