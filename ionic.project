@@ -5,6 +5,6 @@
     "watch"
   ],
   "watchPatterns": [
-    "www/**/*",
+    "www/**/*"
   ]
 }

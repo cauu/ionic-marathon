@@ -15,6 +15,10 @@ platforms
 # Compiled pack
 www
 
+# Icon resources
+resources/ios
+resources/android
+
 .DS_Store
 .idea
 
