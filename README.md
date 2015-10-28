@@ -1,15 +1,15 @@
 ###项目简介 
  
 *** 
-基于Ionic的项目，可用于马拉松报名、查询和活动发布。  主要用来练手。项目将在之前的mean-seed-project基础上，结合[ionic-starter](https://github.com/loicknuchel/ionic-starter/blob/master/package.json)，对依赖的控件、模块进行精简。  
+基于Ionic的种子项目。项目在之前的mean-seed-project基础上，结合[ionic-starter](https://github.com/loicknuchel/ionic-starter/blob/master/package.json)，对依赖的控件、模块进行精简。抛弃foundation for app，拥抱ionic。
   
 ###安装项目
 
 ***
 首先在global scope安装npm、bower和gulp（这里就不赘述），然后按顺序运行以下命令:    
   
-1. git clone https://github.com/cauu/ionic-marathon.git  
-2. cd ionic-marathon
+1. git clone https://github.com/cauu/ionic-seed.git  
+2. cd ionic-seed
 3. npm install
 4. bower install
 5. gulp default
