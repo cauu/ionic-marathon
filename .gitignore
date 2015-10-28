@@ -9,6 +9,8 @@ pids
 # Dependency libs 
 bower_components
 node_modules
+plugins
+platforms
 
 # Compiled pack
 www

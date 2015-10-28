@@ -1,5 +1,6 @@
 {
-  "name": "myprj",
+  "name": "marathon",
+  "description": "Start a new ionic project",
   "varsion": "1.0.0",
   "scripts": {
     "start": "gulp"
@@ -24,5 +25,16 @@
     "rimraf": "^2.4.1",
     "run-sequence": "^1.1.1",
     "yargs": "^3.15.0"
-  }
+  },
+  "cordovaPlugins": [
+    "com.ionic.keyboard",
+    "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin",
+    "cordova-plugin-device",
+    "cordova-plugin-dialogs",
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-console"
+  ],
+  "cordovaPlatforms": [
+    "ios"
+  ]
 }
