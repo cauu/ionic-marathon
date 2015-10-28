@@ -32,12 +32,12 @@ var paths = {
       './bower_components/ionic/scss'
     ],
     libs: [
-      'bower_components/ionic/release/js/ionic.bundle.js',
-      'bower_components/oclazyload/dist/ocLazyLoad.js',
-      'bower_components/angular-base64/angular-base64.js',
-      'bower_components/angular-md5/angular-md5.js',
-      'bower_components/moment/moment.js',
-      'bower_components/moment-range/dist/moment-range.js',
+      'bower_components/ionic/release/js/ionic.bundle.min.js',
+      'bower_components/oclazyload/dist/ocLazyLoad.min.js',
+      'bower_components/angular-base64/angular-base64.min.js',
+      'bower_components/angular-md5/angular-md5.min.js',
+      'bower_components/moment/min/moment.min.js',
+      'bower_components/moment-range/dist/moment-range.min.js',
       'bower_components/angular-localforage/dist/angular-localForage.min.js',
       'bower_components/ngCordova/dist/ng-cordova.min.js'
     ],
