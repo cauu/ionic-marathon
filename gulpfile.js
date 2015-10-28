@@ -10,6 +10,7 @@ var argv = require('yargs').argv;
 var rimraf = require('rimraf');
 var router = require('front-router');
 var sequence = require('run-sequence');
+var imagemin = require('gulp-imagemin');
 
 //Check for --production flag
 var isProduction = !!(argv.production);
@@ -107,6 +108,13 @@ gulp.task('copy:views', function(cb) {
     cb();
 });
 
+gulp.task('compress:image', function() {
+    gulp.src('./src/img/*.*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./www/img/'))
+    ;
+});
+
 // Compiles Sass
 gulp.task('sass', function () {
   return gulp.src('src/scss/app.scss')
@@ -165,7 +173,7 @@ gulp.task('server', ['build'], function() {
 });
 //Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'sass', 'uglify'], 'copy:templates', 'copy:views', cb);
+  sequence('clean', ['copy', 'sass', 'uglify'], 'compress:image', 'copy:templates', 'copy:views', cb);
 });
 
 //Default task: build your app, starts a server and recompile assets 
