@@ -13,11 +13,9 @@
       .config(configure)
     ;
 
-    configure.$inject = ['$urlRouterProvider', '$provide', '$httpProvider', '$locationProvider'];
+    configure.$inject = ['$provide', '$httpProvider', '$locationProvider'];
 
-    function configure($urlRouterProvider, $provide, $httpProvider) {
-        $urlRouterProvider.otherwise('/');
-
+    function configure($provide, $httpProvider, $locationProvider) {
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false,
