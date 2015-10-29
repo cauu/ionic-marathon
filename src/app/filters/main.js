@@ -2,6 +2,6 @@
     'use strict';
 
     angular
-      .module('iu.filters', [])
+      .module('app.filters', [])
     ;
 })();

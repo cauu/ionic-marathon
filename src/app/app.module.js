@@ -8,7 +8,12 @@
           'ngCordova',
           'LocalForageModule',
           'base64',
-          'angular-md5'
+          'angular-md5',
+
+          'app.services',
+          'app.directives',
+          'app.filters',
+          'app.home'
       ])
       .config(configure)
     ;

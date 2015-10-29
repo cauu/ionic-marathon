@@ -22,8 +22,8 @@ var paths = {
     //Include js, html and scss files
     assets: [
       './src/**/*.*',
-      '!./src/{scss,js,views,templates}/*.*',
-      '!./src/js/**/*.*',
+      '!./src/{scss,app}/*.*',
+      '!./src/app/**/*.*',
     ],
     // Sass will check these folders for files when you @import
     sass: [
@@ -44,11 +44,11 @@ var paths = {
     //These files are for your app's Javascript
     //Remember to refresh this list when adding new files
     appJS: [
-        './src/js/app.js',
-        './src/js/*.js',
-        './src/js/**/main.js',
-        './src/js/services/*.js',
-        './src/js/**/*.js'
+        './src/app/app.module.js',
+        './src/app/*.js',
+        './src/app/**/main.js',
+        './src/app/services/*.js',
+        './src/app/**/*.js'
     ]
 };
 
@@ -81,9 +81,9 @@ gulp.task('copy', function() {
 });
 
 gulp.task('copy:templates', function(cb) {
-    gulp.src('./src/templates/*.html')
+    gulp.src('./src/app/**/*.html')
       .pipe($.ngHtml2js({
-          prefix: 'templates/',
+          prefix: '/',
           moduleName: 'app',
           declareModule: false
       }))
@@ -94,19 +94,19 @@ gulp.task('copy:templates', function(cb) {
     cb();
 });
 
-gulp.task('copy:views', function(cb) {
-    gulp.src('./src/views/*.html')
-      .pipe($.ngHtml2js({
-          prefix: 'views/',
-          moduleName: 'app',
-          declareModule: false
-      }))
-      .pipe($.uglify())
-      .pipe($.concat('views.js'))
-      .pipe(gulp.dest('./www/js'));
-
-    cb();
-});
+// gulp.task('copy:views', function(cb) {
+//     gulp.src('./src/js#<{(|#<{(|.html')
+//       .pipe($.ngHtml2js({
+//           prefix: 'views/',
+//           moduleName: 'app',
+//           declareModule: false
+//       }))
+//       .pipe($.uglify())
+//       .pipe($.concat('views.js'))
+//       .pipe(gulp.dest('./www/js'));
+//
+//     cb();
+// });
 
 gulp.task('compress:image', function() {
     gulp.src('./src/img/*.*')
@@ -173,7 +173,7 @@ gulp.task('server', ['build'], function() {
 });
 //Builds your entire app once, without starting a server
 gulp.task('build', function(cb) {
-  sequence('clean', ['copy', 'sass', 'uglify'], 'compress:image', 'copy:templates', 'copy:views', cb);
+  sequence('clean', ['copy', 'sass', 'uglify'], 'compress:image', 'copy:templates', cb);
 });
 
 //Default task: build your app, starts a server and recompile assets 
@@ -183,12 +183,14 @@ gulp.task('default', ['server'], function () {
   gulp.watch(['./src/scss/**/*', './scss/**/*'], ['sass']);
 
   // Watch JavaScript
-  gulp.watch(['./src/js/**/*', './js/**/*'], ['uglify:app']);
+  gulp.watch(['./src/app/**/*', './app/**/*'], ['uglify:app']);
 
   // Watch static files
-  gulp.watch(['./src/**/*.*', '!./src/views/**/*.*', '!./src/{scss,js}/**/*.*'], ['copy']);
+  gulp.watch(['./src/**/*.*', '!./src/views/**/*.*', '!./src/img/*.*', '!./src/{scss,app}/**/*.*'], ['copy']);
 
-  gulp.watch(['./src/templates/*.html'], ['copy:templates']);
+  gulp.watch(['./src/app/**/*.html'], ['copy:templates']);
 
-  gulp.watch(['./src/views/*.html'], ['copy:views']);
+  gulp.watch(['./src/img/*.*'], ['compress:image']);
+
+  // gulp.watch(['./src/views#<{(|.html'], ['copy:views']);
 });

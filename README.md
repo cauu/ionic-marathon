@@ -43,3 +43,13 @@ npm install -g ios-sim && ionic platform add ios && ionic resources && ionic run
 * bower.json (name, homepage, author & description)
 * package.json (name & description)
 * ionic.project (name¡)
+  
+###目录结构
+  
+***
+之前的mean-seed-prj采用了“按照类型划分目录”的方式，随着项目变得越来越大，每次添加内容时，都不能在第一时间找到需要修改的文件，这带来了很大的困扰。因此，在这个seed-prj中，我果断将目录结构改为“按功能点划分”。这意味着，每当有新的页面需要被添加，我只需要新建一个新的文件夹，插入新的内容即可，而不必再去三个目录下，分别插入其对应的内容。在项目初期，你可能体会不到这样的便利，然而这一举措绝对是必要的。
+  
+### 参考
+
+***
+强烈推荐[Angular-Style-Guide](https://github.com/johnpapa/angular-styleguide¡)
