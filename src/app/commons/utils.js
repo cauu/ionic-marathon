@@ -6,9 +6,9 @@
       .factory('Utils', Utils) 
     ;
 
-    Utils.$inject = ['$sce'];
+    Utils.$inject = ['$sce', '$q'];
 
-    function Utils($sce) {
+    function Utils($sce, $q) {
         var utils = {
             randInt: randInt,
             startsWith: startsWith,
