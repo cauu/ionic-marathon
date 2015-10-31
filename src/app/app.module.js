@@ -9,6 +9,7 @@
           'LocalForageModule',
           'base64',
           'angular-md5',
+          'angularModalService',
 
           'app.services',
           'app.directives',

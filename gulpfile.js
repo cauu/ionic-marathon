@@ -23,6 +23,7 @@ var paths = {
     assets: [
       './src/**/*.*',
       '!./src/{scss,app}/*.*',
+      '!./src/{scss,app}/**',
       '!./src/app/**/*.*',
     ],
     // Sass will check these folders for files when you @import
@@ -39,7 +40,8 @@ var paths = {
       'bower_components/moment/min/moment.min.js',
       'bower_components/moment-range/dist/moment-range.min.js',
       'bower_components/angular-localforage/dist/angular-localForage.min.js',
-      'bower_components/ngCordova/dist/ng-cordova.min.js'
+      'bower_components/ngCordova/dist/ng-cordova.min.js',
+      'bower_components/angular-modal-service/dst/angular-modal-service.min.js'
     ],
     //These files are for your app's Javascript
     //Remember to refresh this list when adding new files
@@ -49,6 +51,11 @@ var paths = {
         './src/app/**/main.js',
         './src/app/services/*.js',
         './src/app/**/*.js'
+    ],
+    tpl: [
+        './src/app/**/*.html',
+        './src/app/commons/*.html',
+        './src/app/commons/**/*.html'
     ]
 };
 
@@ -81,7 +88,10 @@ gulp.task('copy', function() {
 });
 
 gulp.task('copy:templates', function(cb) {
-    gulp.src('./src/app/**/*.html')
+    // gulp.src('./src/app#<{(||)}>#*.html')
+    gulp.src(paths.tpl, {
+        base: './src/app/'
+    })
       .pipe($.ngHtml2js({
           prefix: '/',
           moduleName: 'app',
@@ -188,7 +198,7 @@ gulp.task('default', ['server'], function () {
   // Watch static files
   gulp.watch(['./src/**/*.*', '!./src/views/**/*.*', '!./src/img/*.*', '!./src/{scss,app}/**/*.*'], ['copy']);
 
-  gulp.watch(['./src/app/**/*.html'], ['copy:templates']);
+  gulp.watch(['./src/app/**/*.html', '/src/app/commons/*.html', '/src/app/commons/**/*.html'], ['copy:templates']);
 
   gulp.watch(['./src/img/*.*'], ['compress:image']);
 

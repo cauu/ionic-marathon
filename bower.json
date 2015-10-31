@@ -27,6 +27,8 @@
     "moment-range": "~2.0.3",
     "angular-md5": "~0.1.8",
     "angular-base64": "~2.0.5",
-    "angular-localforage": "~1.2.3"
+    "angular-localforage": "~1.2.3",
+    "angular-modal-service": "~0.6.9",
+    "ionicons": "~2.0.1"
   }
 }

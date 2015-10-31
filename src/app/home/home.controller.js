@@ -6,8 +6,15 @@
       .controller('HomeController', HomeController)
     ;
 
-    HomeController.$inject = ['$scope'];
+    HomeController.$inject = ['$scope', 'WarningUtils'];
 
-    function HomeController($scope) {
+    function HomeController($scope, WarningUtils) {
+        $scope.showWarning = _showWarning;
+
+
+        function _showWarning() {
+            console.log('showWarning is called');
+            WarningUtils.showWarning('test', 'info', 2000, function(){});
+        }
     }
 })();
