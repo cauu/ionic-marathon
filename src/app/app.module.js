@@ -14,7 +14,9 @@
           'app.services',
           'app.directives',
           'app.filters',
-          'app.home'
+
+          'app.home',
+          'app.flex'
       ])
       .config(configure)
     ;

@@ -1,36 +1,36 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-
-      <ion-nav-buttons side="left">
-        <button class="button button-clear ion-navicon" menu-toggle="left">
-        </button>
-      </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
-  </ion-side-menu-content>
-
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
-    </ion-header-bar>
-    <ion-content>
-      <ion-list>
-        <ion-item menu-close ng-click="showWarning()">
-          Warning
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-side-menu>
-</ion-side-menus>
+   <ion-side-menus>
+      
+<iu-menu-fader class="iu-backdrop"></iu-menu-fader>
+    
+      <ion-side-menu-content style="width:70%;">
+        <ion-header-bar class="bar-balanced">
+          <h1 class="title title-left"><i class="ion-cloud"></i>IU</h1>
+        </ion-header-bar>
+        
+        <ion-content class="has-footer has-wallet">
+          <ion-list>
+            <ion-item on-tap="showWarning()">Warning</ion-item>
+            <ion-item>View</ion-item>
+          </ion-list>
+        </ion-content>
+        <ion-footer-bar class="bar-energized premium-bar">
+          <h1 class="title">切换到简版地图</h1>
+        </ion-footer-bar>
+      </ion-side-menu-content>
+    
+      <ion-side-menu side="right" width="{{width()}}" can-drag-menu>
+        <ion-header-bar class="bar-balanced">
+          <button menu-close class="button button-icon ion-navicon"></button>
+          <h1 class="title">Credit card</h1>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <p>
+            On a small viewport (less than 768px window width), the left menu will be hidden, but can be shown by swiping left to right, or toggling the button in the top left of the header. On a large viewport (greater than or equal to 768px), the left menu will stay open.
+          </p>
+          <p>
+            Using <code>large</code> as the attribute's value is an alias to <code>(min-width:768px)</code> since it is the most common use-case. However, for added flexibility, any valid media query could be added as the value, such as <code>(min-width:600px)</code> or even multiple queries such as <code>(min-width:750px) and (max-width:1200px)</code>.
+          </p>
+        </ion-content>
+      </ion-side-menu>
+      
+    </ion-side-menus>
