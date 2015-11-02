@@ -1,0 +1,14 @@
+.iu-flash-info {
+    @extend %iu-flash;
+    background-color: $positive;
+}
+
+.iu-flash-success{
+    @extend %iu-flash;
+    background-color: $balanced;
+}
+
+.iu-flash-danger{
+    @extend %iu-flash;
+    background-color: $assertive;
+}
